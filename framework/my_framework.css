@@ -677,7 +677,7 @@ body{
     /* Common */
     body{
         font-family: monospace;
-        font-size: medium;
+        font-size: larger;
     }
 
     /* Columns */
@@ -774,7 +774,7 @@ body{
     /* Common */
     body{
         font-family: sans-serif;
-        font-size: small;
+        font-size: large;
     }
 
     /* Columns */
@@ -966,7 +966,7 @@ body{
 @media screen and (min-width: 992px){
     /* Common */
     body{
-        font-size: large;
+        font-size: small;
     }
 
     /* Columns */
@@ -1062,7 +1062,7 @@ body{
 @media screen and (min-width: 1200px){
     /* Common */
     body{
-        font-size: larger;
+        font-size: small;
     }
 
     /* Columns */
@@ -1158,7 +1158,7 @@ body{
 @media screen and (min-width: 1400px){
     /* Common */
     body{
-        font-size: x-large;
+        font-size: smaller;
     }
 
     /* Columns */
