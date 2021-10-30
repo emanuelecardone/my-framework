@@ -445,7 +445,41 @@ body{
 
 
 /* Animazione rainbow */
-@keyframes make-it-rainbow{
+@keyframes rainbow-color{
+    0%{
+        color: #ff0000;
+    }
+
+    14.28%{
+        color: #ffa500;
+    }
+
+    28.56%{
+        color: #ffff00;
+    }
+
+    42.84%{
+        color: #008000;
+    }
+
+    57.12%{
+        color: #0000ff;
+    }
+
+    71.4%{
+        color: #4b0082;
+    }
+
+    85.68%{
+        color: #ee82ee;
+    }
+
+    100%{
+        color: #ff0000;
+    }    
+}
+
+@keyframes rainbow-background{
     0%{
         background-color: #ff0000;
     }
