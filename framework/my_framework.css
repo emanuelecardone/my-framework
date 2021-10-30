@@ -1249,3 +1249,23 @@ body{
         margin-left: calc((100% / 12) * 11);
     }
 }
+
+/* PERSONALIZZATO */
+
+/* Radio buttons liberi nel body */
+.radio-input{
+    opacity: 0;
+    position: fixed;
+    right: 2.05vw;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.radio-mark{
+    border-radius: 50%;
+    height: 15px;
+    width: 15px;                                         
+    display: inline-block;
+    position: fixed;
+    right: 2vw;
+}
