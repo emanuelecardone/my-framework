@@ -299,7 +299,9 @@ i{
     animation-timing-function: linear;
     animation-iteration-count: 1;
 }
-/* Questo selettore farà si che la goccia di font awesome si muova solo se clicco su radio che non hanno già il checked */
+/* Questo selettore farà si che la goccia di font awesome si muova solo se clicco su radio che non hanno già il checked.
+l'animazione del movimento della fa-tint è con l'active, quella del colore col checked 
+quindi nessuna delle due animazioni sovrascrive l'altra*/
 
 
 /* RESPONSIVE PER IL MENU' (width e height)*/
