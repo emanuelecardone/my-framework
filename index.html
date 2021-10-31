@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12 Bool</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="framework/my_framework.css">
+    <link rel="stylesheet" href="framework/menu.css">
+</head>
+<body>
+
+    <!-- L'ordine a cascata è strutturato in modo che ogni elemento si trovi dopo quello che gli darà un effetto -->
+
+    <!-- PULSANTI APRI/CHIUDI MENU' -->
+    <input class="close-it hidden-mark" type="radio" name="open-close">
+    <input class="open-it hidden-mark" type="radio" name="open-close">
+
+    <!-- PULSANTI CAMBIO SFONDO E ANIMAZIONE FA-TINT -->
+    <!-- Radio marks fuori dal main per farli essere siblings del main (cosi da cambiare sfondo al checked) -->
+    <input class="white left change-color" type="radio" name="colors" checked="checked">
+    <span id="white" class="white left radio-mark"></span>
+    <input class="rainbow left change-color" type="radio" name="colors">
+    <span id="rainbow" class="rainbow left radio-mark"></span>
+    <input class="red change-color" type="radio" name="colors">
+    <span id="red" class="red radio-mark"></span>
+    <input class="aqua change-color" type="radio" name="colors">
+    <span id="aqua" class="aqua radio-mark"></span>
+    <input class="lime change-color" type="radio" name="colors">
+    <span id="lime" class="lime radio-mark"></span>
+    <i class="fas fa-tint"></i>
+
+
+    <!-- CONTAINERS DEI CONTENUTI DEL MENU' (più span fuori dal display iniziale per i vari responsive) -->
+    <div class="fixed cursive opened">
+        <span class="close">chiudi</span>
+    </div>
+    <div class="fixed cursive closed">
+        <span class="open">apri</span>
+    </div>
+
+    <!-- Questo div è un fake container dei radios per i colori (posizionati con top e right) 
+    per fari si che i radio siano siblings del main ed ottenere l'effetto visivo che stiano dentro al box fixed -->
+    <div class="fixed cursive fake-container">
+        <span>Cambia sfondo qui</span>
+    </div>
+
+    <!-- MAIN -->
+    <main>
+
+    </main>
+</body>
