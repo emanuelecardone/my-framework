@@ -611,8 +611,9 @@ i{
         writing-mode: vertical-lr; 
         text-orientation: upright;
         line-height: 1.5vw;
-        font-size: 0.7vh;
-        white-space: wrap;
+        font-size: 0.9vh;
+        text-align: left;
+        margin-top: 1vh;
     }
 
     .fake-container{
@@ -775,9 +776,9 @@ i{
  @media screen and (max-height:800px){
     .page,
     .switch{
-        top: 24.3vh;
+        top: 24.2vh;
         right: 0;
-        width: 11.25vw;
+        width: 10vw;
         max-width: 11.25vw;
         background-image: url(../img/Blue\ wood.png);
         background-repeat: no-repeat;
@@ -827,6 +828,22 @@ i{
         display: none;
     } 
  }
+
+ @media screen and (max-width: 1200px) and (max-height:800px){
+    .fake-container span{
+        font-size: 1vh;
+    }
+}
+
+@media screen and (max-width: 1200px) and (max-height:600px){
+   .fake-container span{
+       writing-mode: horizontal-tb;
+       text-orientation: sideways;
+       font-size: 1.5vh;
+       margin-top: 3vh;
+       margin-left: 0.5vw;
+   }
+}
 
  @media screen and (max-width: 992px) and (max-height:1000px){
     .radio-mark,
@@ -891,7 +908,7 @@ i{
     }
 }
 
-@media screen and (max-width: 767px) and (max-height:800px){
+@media screen and (max-width: 768px) and (max-height:800px){
     .page,
     .switch{
         right: 5.1vw;
