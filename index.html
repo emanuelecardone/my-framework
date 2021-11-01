@@ -11,43 +11,82 @@
 </head>
 <body>
 
+    <div class="body-overlay"> </div>
     <!-- L'ordine a cascata è strutturato in modo che ogni elemento si trovi dopo quello che gli darà un effetto -->
 
     <!-- PULSANTI APRI/CHIUDI MENU' -->
-    <input class="close-it hidden-mark" type="radio" name="open-close">
-    <input class="open-it hidden-mark" type="radio" name="open-close">
 
-    <!-- PULSANTI CAMBIO SFONDO E ANIMAZIONE FA-TINT -->
-    <!-- Radio marks fuori dal main per farli essere siblings del main (cosi da cambiare sfondo al checked) -->
-    <input class="white left change-color" type="radio" name="colors" checked="checked">
-    <span id="white" class="white left radio-mark"></span>
-    <input class="rainbow left change-color" type="radio" name="colors">
-    <span id="rainbow" class="rainbow left radio-mark"></span>
-    <input class="red change-color" type="radio" name="colors">
-    <span id="red" class="red radio-mark"></span>
-    <input class="aqua change-color" type="radio" name="colors">
-    <span id="aqua" class="aqua radio-mark"></span>
-    <input class="lime change-color" type="radio" name="colors">
-    <span id="lime" class="lime radio-mark"></span>
-    <i class="fas fa-tint"></i>
+    <!-- Tasti apri/chiudi -->
+    <input class="close-it minimize hidden-mark" type="radio" name="open-close">
+    <input class="open-it minimize hidden-mark" type="radio" name="open-close">
 
 
-    <!-- CONTAINERS DEI CONTENUTI DEL MENU' (più span fuori dal display iniziale per i vari responsive) -->
-    <div class="fixed cursive opened">
+    <!-- PULSANTI CAMBIO SFONDO E ANIMAZIONE FA-HAND-POINTER -->  
+
+    <!-- Tasti cambio pagina sfondi -->
+    <input class="first-button switch hidden-mark" type="radio" name="switch-page">
+    <input class="second-button switch hidden-mark" type="radio" name="switch-page">
+
+
+    <!-- CONTAINERS DEI CONTENUTI DEL MENU' -->
+
+    <!-- Span apri/chiudi  -->
+    <div class="fixed cursive close-menu opened">
         <span class="close">chiudi</span>
     </div>
-    <div class="fixed cursive closed">
+    <div class="fixed cursive close-menu closed">
         <span class="open">apri</span>
     </div>
 
+    <!-- Span cambio pagina sfondi -->
+    <div class="fixed cursive page page-1">
+        <span class="go-page-2">altri</span><span class="vanish">sfondi</span></span>
+    </div>
+    <div class="fixed cursive page page-2">
+        <span class="go-page-1"><span class="vanish">torna</span> indietro</span>
+    </div>
+    
+
+    <!-- Radio marks fuori dal main per farli essere siblings del main (cosi da cambiare sfondo al checked) -->
+    <!-- Primo gruppo di radios -->
+    <input class="first-group white left change-color" type="radio" name="colors" checked="checked">
+    <span id="white" class="first-group white left radio-mark"></span>
+    <input class="first-group rainbow left change-color" type="radio" name="colors">
+    <span id="rainbow" class="first-group rainbow left radio-mark"></span>
+    <input class="first-group red middle change-color" type="radio" name="colors">
+    <span id="red" class="first-group red middle radio-mark"></span>
+    <input class="first-group lime middle change-color" type="radio" name="colors">
+    <span id="lime" class="first-group lime middle radio-mark"></span>
+    <input class="first-group aqua right change-color" type="radio" name="colors">
+    <span id="aqua" class="first-group aqua right radio-mark"></span>
+    <input class="first-group violet right change-color" type="radio" name="colors">
+    <span id="violet" class="first-group violet right radio-mark"></span>
+
+    <!-- Secondo gruppo di radios -->
+    <input class="second-group golden left change-color none" type="radio" name="colors">
+    <span id="golden" class="second-group golden left radio-mark"></span>
+    <input class="second-group silver left change-color none" type="radio" name="colors">
+    <span id="silver" class="second-group silver left radio-mark"></span>
+    <input class="second-group bronze middle change-color none" type="radio" name="colors">
+    <span id="bronze" class="second-group bronze middle radio-mark"></span>
+    <input class="second-group lilla middle change-color none" type="radio" name="colors">
+    <span id="lilla" class="second-group lilla middle radio-mark"></span>
+    <input class="second-group emerald right change-color none" type="radio" name="colors">
+    <span id="emerald" class="second-group emerald right radio-mark"></span>
+    <input class="second-group lapis right change-color none" type="radio" name="colors">
+    <span id="lapis" class="second-group lapis right radio-mark none"></span>
+
+    <!-- Fa-hand-pointer -->
+    <i class="far fa-hand-pointer"></i>
+
     <!-- Questo div è un fake container dei radios per i colori (posizionati con top e right) 
-    per fari si che i radio siano siblings del main ed ottenere l'effetto visivo che stiano dentro al box fixed -->
+    per fari si che i radio siano siblings del main ed ottenere l'effetto visivo che stiano dentro al fake container -->
     <div class="fixed cursive fake-container">
-        <span>Cambia sfondo qui</span>
+        <span>Cambia sfondo</span>
     </div>
 
     <!-- MAIN -->
     <main>
-
+        <H1>MAIN</H1>
     </main>
 </body>

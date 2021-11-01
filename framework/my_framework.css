@@ -547,15 +547,145 @@ body{
     }    
   }
 
-  @keyframes virtual-click{
-      50%{
-        transform: scale(0.5);
-      }
+  /* Necessario fare 2 animazioni diverse per primo e secondo gruppo altrimenti funzionerà solo se la fa-hand cambia direzione
+ma se la direzione non cambia starei facendo partire la stessa animazione 2 volte e funzionerebbe solo la prima volta */
 
-      100%{
-          transform: scale(1);
-      }
-  }
+@keyframes up-left-virtual-click{
+    50%{
+        transform: scale(0.5) rotate(320deg);
+    }
+
+    100%{
+        transform: scale(1) rotate(320deg);
+    }
+}
+
+@keyframes up-left-virtual-click-2{
+    50%{
+        transform: scale(0.5) rotate(320deg);
+    }
+
+    100%{
+        transform: scale(1) rotate(320deg);
+    }
+}
+
+@keyframes up-virtual-click{
+    50%{
+        transform: scale(0.5) rotate(10deg);
+    }
+
+    100%{
+        transform: scale(1) rotate(10deg);
+    }
+}
+
+@keyframes up-virtual-click-2{
+    50%{
+        transform: scale(0.5) rotate(10deg);
+    }
+
+    100%{
+        transform: scale(1) rotate(10deg);
+    }
+}
+
+@keyframes up-right-virtual-click{
+    50%{
+        transform: scale(0.5) rotate(60deg);
+    }
+
+    100%{
+        transform: scale(1) rotate(60deg);
+    }
+}
+
+@keyframes up-right-virtual-click-2{
+    50%{
+        transform: scale(0.5) rotate(60deg);
+    }
+
+    100%{
+        transform: scale(1) rotate(60deg);
+    }
+}
+
+@keyframes down-right-virtual-click{
+    50%{
+        transform: scale(0.5) rotate(145deg);
+    }
+
+    100%{
+        transform: scale(1) rotate(145deg);
+    }
+}
+
+@keyframes down-right-virtual-click-2{
+    50%{
+        transform: scale(0.5) rotate(145deg);
+    }
+
+    100%{
+        transform: scale(1) rotate(145deg);
+    }
+}
+
+@keyframes down-virtual-click{
+    50%{
+        transform: scale(0.5) rotate(185deg);
+    }
+
+    100%{
+        transform: scale(1) rotate(185deg);
+    }
+}
+
+@keyframes down-virtual-click-2{
+    50%{
+        transform: scale(0.5) rotate(185deg);
+    }
+
+    100%{
+        transform: scale(1) rotate(185deg);
+    }
+}
+
+@keyframes down-left-virtual-click{
+    50%{
+        transform: scale(0.5) rotate(230deg);
+    }
+
+    100%{
+        transform: scale(1) rotate(230deg);
+    }
+}
+
+@keyframes down-left-virtual-click-2{
+    50%{
+        transform: scale(0.5) rotate(230deg);
+    }
+
+    100%{
+        transform: scale(1) rotate(230deg);
+    }
+}
+
+/* Comparsa iniziale body */
+@keyframes body-appears{
+    0%{
+        opacity: 1;
+        z-index: 20;
+    }
+
+    99.99%{
+        z-index: 20;
+        opacity: 0;
+    }
+
+    100%{
+        z-index: 0;
+    }
+}
 
 /* IMPOSTAZIONE COMPORTAMENTO ELEMENTI FLEX */
 

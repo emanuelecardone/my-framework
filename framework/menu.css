@@ -2,6 +2,7 @@
 body{
     color: white;
     scroll-behavior: smooth;
+    background-color: black;
 }
 
 h2{
@@ -17,7 +18,42 @@ h2{
 }
 
 main{
-    height: 100vh;
+    height: 70vh;
+    width: 70%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1{
+    color: black;
+    font-size: 10vw;
+}
+
+/* Comparsa iniziale body effetto overlay*/
+.body-overlay{
+    opacity: 1;
+    animation: 0.3s linear 1 body-appears;
+    z-index: 0;
+    opacity: 0;
+    background-color: black;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+/* HOVER (bold al font del menù all'hover)*/
+.change-color:hover ~ .fake-container,
+.radio-mark:hover ~ .fake-container,
+.fa-hand-pointer:hover ~ .fake-container,
+.fake-container:hover,
+.minimize:hover ~ .close-menu,
+.switch:hover ~ .page{
+    font-weight: bold;
 }
 
 /* BUTTONS */
@@ -33,10 +69,9 @@ main{
     max-width: 10vw;
     width: 10vw;
     height: 12vh;
-    min-height: 12vh;
     font-size: 0.8vw;
     text-align: center;
-    background-image: url(https://besthqwallpapers.com/Uploads/1-10-2019/106594/thumb2-4k-diagonal-wooden-texture-macro-blue-wooden-texture-wooden-backgrounds.jpg);
+    background-image: url(../img/Blue\ wood.png);
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
@@ -51,49 +86,65 @@ main{
     right: 0;
     text-align: center;
     justify-content: flex-start;
+    align-items: flex-start;
+    padding-top: 2vh;
+    min-height: 12vh;
 }
 
 .fake-container span{
     max-width: 60%;
+    line-height: 3vh;
 }
 
 .fixed span{
     opacity: 1;
 }
 
+.hidden-mark{
+    position: fixed; 
+    cursor: pointer;
+    z-index: 13;
+    opacity: 0;
+}
+
+.first-group{
+    display: inline-block;
+}
+
+.second-group{
+    display: none;
+}
 
 /* SEZIONE PER L'APRI/CHIUDI MENU' (usati radio buttons invisibili per renderlo possibile al click e non all'active) */
 
 /*I buttons invisibili sono grandi esattamente come i div,
 hanno z-index più alto e opacity 0 per renderli clickabili e non visibili */
+
+.minimize{
+    width: 1.1vw;
+    min-width: 1.1vw;
+    height: 12vh;
+    min-height: 12vh;
+    top: 12.1vh;
+    right: 10.05vw;
+}
+
+.open-it{
+    right: 0;
+    display: none;
+}
+
 .opened,
 .closed{
     top: 12.1vh;
     right: 10.05vw;
     width: 1vw;
     padding: 0.5vw;
+    min-height: 12vh;
 }
 
 .closed{
     right: 0; 
-    display: none;
-}
-
-.hidden-mark{
-    width: 1.1vw;
-    min-width: 1.1vw;
-    height: 12vh;
-    min-height: 12vh;
-    position: fixed; 
-    cursor: pointer;
-    z-index: 13;
-    top: 12.1vh;
-    right: 10.05vw;
-    opacity: 0;
-}
-
-.open-it{
-    right: 0;
     display: none;
 }
 
@@ -104,11 +155,51 @@ hanno z-index più alto e opacity 0 per renderli clickabili e non visibili */
     font-size: 1vh; /* perché è scritto verticalmente */
 }
 
-/* Chiusura menù */
+
+
+
+/* SEZIONE CAMBIO PAGINA DEGLI SFONDI */
+
+.switch{
+    width: 4.1vw;
+    min-width: 4.1vw;
+    height: 3vh;
+    min-height: 3vh;
+    top: 21.1vh;
+    right: 6vw;
+}
+
+.second-button{
+    display: none;
+}
+
+.page-1,
+.page-2{
+    top: 21.1vh;
+    right: 6vw;
+    width: 4vw;
+    height: 3vh;
+    padding: 0.5vw;
+    z-index: 12;
+    white-space: nowrap;
+    background: none;
+} 
+
+.page-2{
+    display: none;
+} 
+
+.go-page-1, 
+.go-page-1 .vanish{
+    font-size: 0.35vw;
+}
+.go-page-2, .vanish{ 
+    font-size: 0.4vw; /* perché è scritto orizzontalmente */
+    margin: 0 1.5px;
+} 
+
+/* Chiusura menù - parte 1*/
 .close-it:checked ~ .fixed,
-.close-it:checked ~ .change-color,
-.close-it:checked ~ .radio-mark,
-.close-it:checked ~ i,
 .close-it:checked{
     display: none; 
 } 
@@ -116,32 +207,73 @@ hanno z-index più alto e opacity 0 per renderli clickabili e non visibili */
 dato che i 2 radio hanno lo stesso nome, agiscono come gruppo e un radio annulla l'altro.
 in questo modo posso farlo tornare nel display anche se nell'index non segue "Apri" 
 e non posso selezionarlo con ~ o + per ridargli il display col secondo pulsante */
-
 .close-it:checked ~ .closed,
 .close-it:checked + .hidden-mark{
     display: flex;
 }
 
+.close-it:checked ~ i{
+    opacity: 0;
+}/* Se davo un "display none" rifaceva l'animazione del click ogni volta che cliccavo "Apri" e tornava in display 
+visto che c'è sempre un checked del colore attivo */
+
 /* Apertura menù */
-.open-it:checked ~ .fixed,
-.open-it:checked ~ .change-color,
-.open-it:checked ~ .radio-mark,
-.open-it:checked ~ i{
+/* i div .page torneranno automaticamente display flex (dato dalla classe .fixed) appena finisce il checked a "Chiudi"
+non seleziono i .page perché se faccio chiudi/apri come prima azione compariranno sovrapposti in quanto page-1 non ha ancora dato "display none" a page-2 
+cosi il browser leggerà in automatico il comportamento del gruppo switch senza interferenze da parte di open/close,
+non seleziono .closed (cioè il div con la scritta "Apri") perché anche lui è .fixed e il suo stesso radio gli darebbe il display invece che nasconderlo */
+.open-it:checked ~ .fixed:not(.page, .closed),
+.open-it:checked ~ i
+.open-it:checked ~ .switch{
     display: flex; 
 }
 /* ora che "Chiudi" non è più checked tornerà visibile poiché si annulla il "display none" */
-
-.open-it:checked{
+.open-it:checked ~ .closed{
     display: none;
 }
-/* "Chiudi" va in "display none" al suo checked, poi tornerà in "display flex" al successivo checked di "Apri"
+/* "Apri" tornerà in display none in automatico poiché si annulla il checked di "Chiudi" che lo rendeva display flex */
 
 
-/* SEZIONE RADIOS PER CAMBIO SFONDO E ANIMAZIONI FA-TINT */
+/* Spostamento a pagina 2 */
+.first-button:checked ~ .first-group,
+.first-button:checked ~ .page-1,
+.first-button:checked{
+    display: none; 
+} 
+.first-button:checked ~ .second-group,
+.first-button:checked ~ .page-2,
+.first-button:checked + .hidden-mark{
+    display: flex;
+}
+
+/* Ritorno a pagina 1 */
+.second-button:checked ~ .first-group,
+.second-button:checked ~ .page-1,
+.second-button:checked ~ .second-button{
+    display: flex; 
+}
+.second-button:checked ~ .page-2,
+.second-button:checked ~ .second-group{
+    display: none;
+}
+
+/* Chiusura menù - parte 2*/
+/* Questo selettore della sezione open/close DEVE restare ultimo dopo tutti i checked del switch page.
+sarà sempre l'ultimo ad essere letto per le interazioni con gli elementi in comune tra i gruppi open/close e switch
+e sovrascriverà tutti i display flex del gruppo switch per far si che tutto possa diventare "display none" quando clicco "Chiudi" */
+.close-it:checked ~ .change-color,
+.close-it:checked ~ .radio-mark,
+.close-it:checked ~ .switch,
+.close-it:checked ~ .page{
+    display: none;
+}
+
+/* SEZIONE RADIOS PER CAMBIO SFONDO E ANIMAZIONI FA-HAND-POINTER */
+
+/* Comune per input radios e span vuoti */
 .change-color{
     opacity: 0;
     position: fixed;
-    right: 2.05vw;
     z-index: 13;
     cursor: pointer;
 }
@@ -149,10 +281,8 @@ e non posso selezionarlo con ~ o + per ridargli il display col secondo pulsante 
 .radio-mark{
     border-radius: 50%;
     height: 15px;
-    width: 15px;                                         
-    display: inline-block;                               
+    width: 15px;                                                                       
     position: fixed;
-    right: 2vw;
 }
 
 .left{
@@ -162,6 +292,25 @@ span.left{
     right: 3vw;
 }
 
+.middle{
+    right: 2.05vw;
+}
+
+span.middle{
+    right: 2vw;
+}
+
+.right{
+    right: 1.05vw;
+}
+
+span.right{
+    right: 1vw;
+}
+
+/* Cambi di colore al main, radios e fa-hand-pointer con animazione rainbow inclusa */
+
+/* Primo gruppo radios */
 input.white:checked + #white{
     border: 5px solid white;
     background-color: black; /* per creare un effetto visivo checked allo span vuoto*/
@@ -169,7 +318,9 @@ input.white:checked + #white{
 input.white:checked ~ main{
     background-color: white;
 }
-input.white:checked ~ .fa-tint{
+input.white:checked ~ .fa-hand-pointer{
+    animation: 0.07s linear 1 up-left-virtual-click;
+    transform: rotate(320deg);
     color: white;
 }
 #white{
@@ -181,33 +332,21 @@ input.white{
     top: 16.25vh;
 }
 
-/* Cambi di colore al main, radios e fa-tint con animazione rainbow inclusa */
 input.rainbow:checked + #rainbow{
     border: 5px solid;
     background-color: black;
-    animation-name: rainbow-border;
-    animation-duration: 3.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite; 
+    animation: 3.5s linear infinite rainbow-border;
 }
 input.rainbow:checked ~ main{
-    animation-name: rainbow-background;
-    animation-duration: 7s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
+    animation: 7s linear infinite rainbow-background;
 }
-input.rainbow:checked ~ .fa-tint{
-    animation-name: rainbow-color;
-    animation-duration: 3.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-}
+input.rainbow:checked ~ .fa-hand-pointer{
+    animation: 0.07s linear 1 down-left-virtual-click, 3.5s linear infinite rainbow-color;
+    transform: rotate(230deg);
+} 
 #rainbow{
     z-index: 12;
-    animation-name: rainbow-background;
-    animation-duration: 3.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
+    animation: 3.5s linear infinite rainbow-background;
     top: 19.2vh;
 }
 input.rainbow{
@@ -221,7 +360,9 @@ input.red:checked + #red{
 input.red:checked ~ main{
     background-color: red;
 }
-input.red:checked ~ .fa-tint{
+input.red:checked ~ .fa-hand-pointer{
+    animation: 0.07s linear 1 up-virtual-click;
+    transform: rotate(10deg);
     color: red;
 }
 #red{
@@ -240,16 +381,18 @@ input.aqua:checked + #aqua{
 input.aqua:checked ~ main{
     background-color: aqua;
 }
-input.aqua:checked ~ .fa-tint{
+input.aqua:checked ~ .fa-hand-pointer{
+    animation: 0.07s linear 1 up-right-virtual-click;
+    transform: rotate(60deg);
     color: aqua;
 }
 #aqua{
     background-color: aqua;
-    top: 17.7vh;
+    top: 16.2vh;
     z-index: 12;
 }
 input.aqua{
-   top: 17.75vh;
+    top: 16.25vh;
 }
 
 input.lime:checked + #lime{
@@ -259,7 +402,9 @@ input.lime:checked + #lime{
 input.lime:checked ~ main{
     background-color: lime;
 }
-input.lime:checked ~ .fa-tint{
+input.lime:checked ~ .fa-hand-pointer{
+    animation: 0.07s linear 1 down-virtual-click;
+    transform: rotate(185deg);
     color: lime;
 }
 #lime{
@@ -271,32 +416,252 @@ input.lime{
    top: 20.75vh;
 }
 
+input.violet:checked + #violet{
+    border: 5px solid violet;
+    background-color: black; 
+}
+input.violet:checked ~ main{
+    background-color: violet;
+}
+input.violet:checked ~ .fa-hand-pointer{
+    animation: 0.07s linear 1 down-right-virtual-click;
+    transform: rotate(145deg);
+    color: violet;
+}
+#violet{
+    background-color: violet;
+    z-index: 12;
+    top: 19.2vh;
+}
+input.violet{
+   top: 19.25vh;
+}
+
+/* Secondo gruppo radios */
+input.golden:checked + #golden{
+    border: 5px solid #ffd700;
+    background-color: black;
+}
+input.golden:checked ~ main{
+    background-color: #ffd700;
+}
+input.golden:checked ~ .fa-hand-pointer{
+    animation: 0.07s linear 1 down-left-virtual-click-2;
+    transform: rotate(230deg);
+    color: #ffd700;
+}
+#golden{
+    background-color: #ffd700;
+    z-index: 12;
+    top: 19.2vh;
+}
+input.golden{
+   top: 19.25vh;
+}
+
+input.silver:checked + #silver{
+    border: 5px solid #d2d9db;
+    background-color: black;
+}
+input.silver:checked ~ main{
+    background-color: #d2d9db;
+}
+input.silver:checked ~ .fa-hand-pointer{
+    animation: 0.07s linear 1 up-left-virtual-click-2;
+    transform: rotate(320deg);
+    color: #d2d9db;
+}
+#silver{
+    background-color: #d2d9db;
+    z-index: 12;
+    top: 16.2vh;
+}
+input.silver{
+   top: 16.25vh;
+}
+
+input.bronze:checked + #bronze{
+    border: 5px solid #CD7F32;
+    background-color: black;
+}
+input.bronze:checked ~ main{
+    background-color: #CD7F32;
+}
+input.bronze:checked ~ .fa-hand-pointer{
+    animation: 0.07s linear 1 up-virtual-click-2;
+    transform: rotate(10deg);
+    color: #CD7F32;
+}
+#bronze{
+    background-color: #CD7F32;
+    z-index: 12;
+    top: 14.7vh;
+}
+input.bronze{
+   top: 14.75vh;
+}
+
+input.bronze:checked + #bronze{
+    border: 5px solid #CD7F32;
+    background-color: black;
+}
+input.bronze:checked ~ main{
+    background-color: #CD7F32;
+}
+input.bronze:checked ~ .fa-hand-pointer{
+    animation: 0.07s linear 1 up-virtual-click-2;
+    transform: rotate(10deg);
+    color: #CD7F32;
+}
+#bronze{
+    background-color: #CD7F32;
+    z-index: 12;
+    top: 14.7vh;
+}
+input.bronze{
+   top: 14.75vh;
+}
+
+input.lilla:checked + #lilla{
+    border: 5px solid #C9BEFE;
+    background-color: black;
+}
+input.lilla:checked ~ main{
+    background-color: #C9BEFE;
+}
+input.lilla:checked ~ .fa-hand-pointer{
+    animation: 0.07s linear 1 down-virtual-click-2;
+    transform: rotate(185deg);
+    color: #C9BEFE;
+}
+#lilla{
+    background-color: #C9BEFE;
+    z-index: 12;
+    top: 20.7vh;
+}
+input.lilla{
+   top: 20.75vh;
+}
+
+input.emerald:checked + #emerald{
+    border: 5px solid #50C8B4;
+    background-color: black;
+}
+input.emerald:checked ~ main{
+    background-color: #50C8B4;
+}
+input.emerald:checked ~ .fa-hand-pointer{
+    animation: 0.07s linear 1 up-right-virtual-click-2;
+    transform: rotate(60deg);
+    color: #50C8B4;
+}
+#emerald{
+    background-color: #50C8B4;
+    z-index: 12;
+    top: 16.2vh;
+}
+input.emerald{
+   top: 16.25vh;
+}
+
+input.lapis:checked + #lapis{
+    border: 5px solid #638ac7;
+    background-color: black;
+}
+input.lapis:checked ~ main{
+    background-color: #638ac7;
+}
+input.lapis:checked ~ .fa-hand-pointer{
+    animation: 0.07s linear 1 down-right-virtual-click-2;
+    transform: rotate(145deg);
+    color: #638ac7;
+}
+#lapis{
+    background-color: #638ac7;
+    z-index: 12;
+    top: 19.2vh;
+}
+input.lapis{
+   top: 19.25vh;
+}
+
+/* Fa-hand-pointer */
 i{
     position: fixed;
     z-index: 10;
-    font-size: 1.5vw;
-    top: 15vh;
-    right: 0.5vw;
-    /* transform: rotate(320deg); */
+    font-size: 1.2vw;
+    top: 17.1vh;
+    right: 1.73vw;
+    transform: rotate(320deg);
     z-index: 13;   
 }
 
-/* Animazione della fa-tint*/
-.change-color:not(:checked):active ~ i{
-    animation-name: virtual-click;
-    animation-duration: 0.07s;
-    animation-timing-function: linear;
-    animation-iteration-count: 1;
-}
-/* Questo selettore farà si che la goccia di font awesome si muova solo se clicco su radio che non hanno già il checked.
-l'animazione del movimento della fa-tint è con l'active, quella del colore col checked 
-quindi nessuna delle due animazioni sovrascrive l'altra
-e cambiare colore al checked fa durare il nuovo colore fino al nuovo checked*/
-
 
 /* RESPONSIVE PER IL MENU' (width e height)*/
-@media screen and (max-width: 991px){
+/* Tutte le query sono scritte in modo che solo chi deve sovrascrivere lo faccia */
+@media screen and (max-width: 2000px){
+    
+    i{
+        top: 17.5vh;
+        right: 1.9vw;   
+    }
+    
+}
+
+@media screen and (max-width: 1700px){
+    
+    i{
+       font-size: 1.35vw;   
+    }
+    
+}
+
+@media screen and (max-width: 1400px){
     .fake-container span{
+        font-size: 12px;
+    }
+
+    .fake-container{
+        padding-left: 0;
+    }
+
+    i{
+        font-size: 1.5vw;   
+     }
+}
+
+@media screen and (max-width: 1200px){
+    .fake-container span{
+        writing-mode: vertical-lr; 
+        text-orientation: upright;
+        line-height: 1.5vw;
+        font-size: 0.7vh;
+        white-space: wrap;
+    }
+
+    .fake-container{
+        padding-top: 0;
+        padding-left: 5px;
+    }
+
+    i{
+        top: 17.7vh; 
+        right: 2vw;  
+     }
+
+     .vanish{
+         display: none;
+     }
+
+     .go-page-1,
+     .go-page-2{
+         font-size: 0.6vw;
+     }
+}
+
+@media screen and (max-width: 991px){
+    .fake-container span,
+    .fa-hand-pointer{
         display: none;
     }
     
@@ -305,83 +670,271 @@ e cambiare colore al checked fa durare il nuovo colore fino al nuovo checked*/
         max-width: 6vw;
     }
 
-    .left{
+    .page, 
+    .switch{
+        width: 4.04vw;
+        right: 6.01vw;
+        min-height: 12vh;
+        top: 12.1vh;
+    }
+
+    .page{
+        background-image: url(../img/Blue\ wood.png);
+    }
+
+    .go-page-1,
+    .go-page-2{
+        font-size: 0.8vh;
+    }
+
+    .vanish{
+        display: none;
+    }
+
+    .close-menu,
+    .minimize{
+        width: 4.04vw;
+    }
+
+    .page span{
+        writing-mode: vertical-lr; 
+        text-orientation: upright;
+    }
+
+    .left,
+    .right{
         right: 2.05vw;
     }
 
-    span.left{
+    span.left,
+    span.right{
         right: 2vw;
     }
+
+    #red,
+    #bronze{
+        top: 14vh;
+    }
+
+    input.red,
+    input.bronze{
+        top: 14.05vh;
+    }
+
+    #aqua,
+    #emerald{
+        top: 15.5vh;
+    }
+
+    input.aqua,
+    input.emerald{
+        top: 15.55vh;
+    }
+
+    #lime,
+    #lilla{
+        top: 21.4vh;
+    }
+
+    input.lime,
+    input.lilla{
+        top: 21.45vh;
+    }
+
+    #violet,
+    #lapis{
+        top: 19.9vh;
+    }
+
+    input.violet,
+    input.lapis{
+        top: 19.95vh;
+    }
+
+    #rainbow,
+    #golden{
+        top: 18.45vh;
+    }
+
+    input.rainbow,
+    input.golden{
+        top: 18.50vh;
+    }
+
+    #white,
+    #silver{
+        top: 16.95vh;
+    }
+
+    input.white,
+    input.silver{
+        top: 17vh;
+    }
+
+
 }
+
 @media screen and (max-width: 767px){
     .fixed{
         width: 5vw;
         max-width: 5vw;
     }
 
-    .change-color,
-    .left{
+    .page, 
+    .switch{
+        right: 5.01vw;
+    }
+
+    .change-color{
        right: 1.35vw;
     }
 
-    .radio-mark,
-    span.left{
+    span.left,
+    span.right,
+    span.middle{
         right: 1.3vw;
     }
 
-    .fa-tint{  
+    .fa-hand-pointer{  
         display: none;
     }
 }
 
 @media screen and (max-width: 576px){
-    .change-color,
-    .left{
+    .change-color{
     right: 1vw;
     }
 
-    .radio-mark,
-    span.left{
+    span.left,
+    span.right,
+    span.middle{
     right: 1.05vw;
     }
 }
 
 
-@media screen and (max-width: 991px) and (max-height:1000px){
+@media screen and (max-height:1000px){
+    .vanish{
+        display: none;
+    }
+
+    .go-page-1,
+    .go-page-2{
+        font-size: 1vh;
+    }
+
+    
+
+ }
+
+@media screen and (max-height:600px){
+   .fa-hand-pointer{
+       display: none;
+   }
+
+   .page,
+   .switch{
+       top: 24.3vh;
+       right: 0;
+       width: 11.3vw;
+       max-width: 11.3vw;
+       background-image: url(../img/Blue\ wood.png);
+       background-repeat: no-repeat;
+       background-size: cover;
+   }
+}
+
+@media screen and (max-height:500px){
+    
+    .page,
+    .switch{
+        top: 25.3vh;
+    }
+
+    .close-menu,
+    .minimize,
+    .fake-container{
+        top: 13.1vh;
+    }
+ }
+
+ @media screen and (max-height:350px){
+    .fixed,
+    .fa-hand-pointer,
+    .change-color,
+    .radio-mark{
+        display: none;
+    } 
+ }
+
+ @media screen and (max-width: 991px) and (max-height:1000px){
     .radio-mark,
     .change-color{
         width: 10px;
         height: 10px;
     }
     
-    .change-color,
-    .left{
+    .left,
+    .right,
+    .middle{
     right: 2.2vw;
     }
 
-    .radio-mark,
-    span.left{
+    span.left,
+    span.right,
+    span.middle{
     right: 2.25vw;
     }
 }
 
 @media screen and (max-width: 768px) and (max-height:1000px){
-    .change-color,
-    .left{
+    .left,
+    .right,
+    .middle{
     right: 1.7vw;
     }
 
-    .radio-mark,
-    span.left{
+    
+    span.left,
+    span.right,
+    span.middle{
     right: 1.75vw;
     }
 }
 
-@media screen and (max-height:500px){
-   .fake-container,
-   .radio-mark,
-   .change-color,
-   .fa-tint{
-       display: none;
-   }
+
+ @media screen and (max-width: 991px) and (max-height:600px){
+    .page, 
+    .switch{
+        width: 4.04vw;
+        right: 6.01vw;
+        min-height: 12vh;
+        top: 12.1vh;
+    }
+
+    .close-menu,
+    .minimize{
+        width: 4.04vw;
+    }
 }
+
+@media screen and (max-width: 991px) and (max-height:600px){
+    .page,
+    .switch{
+        top: 12.1vh;
+    }
+
+}
+
+@media screen and (max-width: 767px) and (max-height:600px){
+    .page,
+    .switch{
+        right: 5vw;
+    }
+
+    .minimize:not(.open-it),
+    .close-menu:not(.closed){
+        right: 9.05vw;
+    }
+}
+
