@@ -279,31 +279,27 @@ e sovrascriverà tutti i display flex del gruppo switch per far si che tutto pos
 }
 
 .radio-mark{
-    border-radius: 50%;
-    height: 15px;
-    width: 15px;                                                                       
+    border-radius: 50%;                                                                      
     position: fixed;
 }
 
-.left{
-    right: 3.05vw;
+.change-color,
+.radio-mark{
+    height: 15px;
+    width: 15px; 
 }
+
+.left,
 span.left{
     right: 3vw;
 }
 
-.middle{
-    right: 2.05vw;
-}
-
+.middle,
 span.middle{
     right: 2vw;
 }
 
-.right{
-    right: 1.05vw;
-}
-
+.right,
 span.right{
     right: 1vw;
 }
@@ -326,10 +322,10 @@ input.white:checked ~ .fa-hand-pointer{
 #white{
     z-index: 12;
     background-color: white;
-    top: 16.2vh;
 }
+#white,
 input.white{
-    top: 16.25vh;
+    top: 16.2vh;
 }
 
 input.rainbow:checked + #rainbow{
@@ -338,7 +334,7 @@ input.rainbow:checked + #rainbow{
     animation: 3.5s linear infinite rainbow-border;
 }
 input.rainbow:checked ~ main{
-    animation: 7s linear infinite rainbow-background;
+    animation: 7s linear infinite make-it-rainbow;
 }
 input.rainbow:checked ~ .fa-hand-pointer{
     animation: 0.07s linear 1 down-left-virtual-click, 3.5s linear infinite rainbow-color;
@@ -346,11 +342,11 @@ input.rainbow:checked ~ .fa-hand-pointer{
 } 
 #rainbow{
     z-index: 12;
-    animation: 3.5s linear infinite rainbow-background;
-    top: 19.2vh;
+    animation: 3.5s linear infinite make-it-rainbow;
 }
+#rainbow,
 input.rainbow{
-    top: 19.25vh;
+    top: 19.2vh;
 }
 
 input.red:checked + #red{
@@ -368,10 +364,10 @@ input.red:checked ~ .fa-hand-pointer{
 #red{
     z-index: 12;
     background-color: red;
-    top: 14.7vh;
 } 
+#red,
 input.red{
-    top: 14.75vh;
+    top: 14.7vh;
 }
 
 input.aqua:checked + #aqua{
@@ -388,11 +384,11 @@ input.aqua:checked ~ .fa-hand-pointer{
 }
 #aqua{
     background-color: aqua;
-    top: 16.2vh;
     z-index: 12;
 }
+#aqua,
 input.aqua{
-    top: 16.25vh;
+    top: 16.2vh;
 }
 
 input.lime:checked + #lime{
@@ -409,11 +405,11 @@ input.lime:checked ~ .fa-hand-pointer{
 }
 #lime{
     background-color: lime;
-    top: 20.7vh;
     z-index: 12;
 }
+#lime,
 input.lime{
-   top: 20.75vh;
+    top: 20.7vh;
 }
 
 input.violet:checked + #violet{
@@ -431,10 +427,10 @@ input.violet:checked ~ .fa-hand-pointer{
 #violet{
     background-color: violet;
     z-index: 12;
-    top: 19.2vh;
 }
+#violet,
 input.violet{
-   top: 19.25vh;
+    top: 19.2vh;
 }
 
 /* Secondo gruppo radios */
@@ -453,10 +449,10 @@ input.golden:checked ~ .fa-hand-pointer{
 #golden{
     background-color: #ffd700;
     z-index: 12;
-    top: 19.2vh;
 }
+#golden,
 input.golden{
-   top: 19.25vh;
+    top: 19.2vh;
 }
 
 input.silver:checked + #silver{
@@ -474,11 +470,11 @@ input.silver:checked ~ .fa-hand-pointer{
 #silver{
     background-color: #d2d9db;
     z-index: 12;
+}
+#silver,
+input.silver{
     top: 16.2vh;
 }
-input.silver{
-   top: 16.25vh;
-}
 
 input.bronze:checked + #bronze{
     border: 5px solid #CD7F32;
@@ -495,31 +491,10 @@ input.bronze:checked ~ .fa-hand-pointer{
 #bronze{
     background-color: #CD7F32;
     z-index: 12;
-    top: 14.7vh;
 }
+#bronze,
 input.bronze{
-   top: 14.75vh;
-}
-
-input.bronze:checked + #bronze{
-    border: 5px solid #CD7F32;
-    background-color: black;
-}
-input.bronze:checked ~ main{
-    background-color: #CD7F32;
-}
-input.bronze:checked ~ .fa-hand-pointer{
-    animation: 0.07s linear 1 up-virtual-click-2;
-    transform: rotate(10deg);
-    color: #CD7F32;
-}
-#bronze{
-    background-color: #CD7F32;
-    z-index: 12;
     top: 14.7vh;
-}
-input.bronze{
-   top: 14.75vh;
 }
 
 input.lilla:checked + #lilla{
@@ -537,10 +512,10 @@ input.lilla:checked ~ .fa-hand-pointer{
 #lilla{
     background-color: #C9BEFE;
     z-index: 12;
-    top: 20.7vh;
 }
+#lilla,
 input.lilla{
-   top: 20.75vh;
+    top: 20.7vh;
 }
 
 input.emerald:checked + #emerald{
@@ -558,10 +533,11 @@ input.emerald:checked ~ .fa-hand-pointer{
 #emerald{
     background-color: #50C8B4;
     z-index: 12;
-    top: 16.2vh;
+   
 }
+#emerald,
 input.emerald{
-   top: 16.25vh;
+   top: 16.2vh;
 }
 
 input.lapis:checked + #lapis{
@@ -579,10 +555,10 @@ input.lapis:checked ~ .fa-hand-pointer{
 #lapis{
     background-color: #638ac7;
     z-index: 12;
-    top: 19.2vh;
 }
+#lapis,
 input.lapis{
-   top: 19.25vh;
+    top: 19.2vh;
 }
 
 /* Fa-hand-pointer */
@@ -702,75 +678,53 @@ i{
     }
 
     .left,
-    .right{
-        right: 2.05vw;
-    }
-
+    .right,
     span.left,
     span.right{
         right: 2vw;
     }
 
     #red,
-    #bronze{
+    #bronze,
+    input.red,
+    input.bronze{
         top: 14vh;
     }
 
-    input.red,
-    input.bronze{
-        top: 14.05vh;
-    }
-
     #aqua,
-    #emerald{
+    #emerald,
+    input.aqua,
+    input.emerald{
         top: 15.5vh;
     }
 
-    input.aqua,
-    input.emerald{
-        top: 15.55vh;
-    }
-
     #lime,
-    #lilla{
+    #lilla,
+    input.lime,
+    input.lilla{
         top: 21.4vh;
     }
 
-    input.lime,
-    input.lilla{
-        top: 21.45vh;
-    }
-
     #violet,
-    #lapis{
+    #lapis,
+    input.violet,
+    input.lapis{
         top: 19.9vh;
     }
 
-    input.violet,
-    input.lapis{
-        top: 19.95vh;
-    }
-
     #rainbow,
-    #golden{
+    #golden,
+    input.rainbow,
+    input.golden{
         top: 18.45vh;
     }
 
-    input.rainbow,
-    input.golden{
-        top: 18.50vh;
-    }
-
     #white,
-    #silver{
-        top: 16.95vh;
-    }
-
+    #silver,
     input.white,
     input.silver{
-        top: 17vh;
+        top: 16.95vh;
     }
-
 
 }
 
@@ -785,10 +739,7 @@ i{
         right: 5.01vw;
     }
 
-    .change-color{
-       right: 1.35vw;
-    }
-
+    .change-color,
     span.left,
     span.right,
     span.middle{
@@ -801,10 +752,7 @@ i{
 }
 
 @media screen and (max-width: 576px){
-    .change-color{
-    right: 1vw;
-    }
-
+    .change-color,
     span.left,
     span.right,
     span.middle{
@@ -843,32 +791,33 @@ i{
    }
 
    .switch{
-    height: 3.2vh;
+       height: 3.2vh;
+   }
 }
 
 @media screen and (max-height:500px){
- 
- .page,
- .switch{
-     top: 25.3vh;
+    
+    .page,
+    .switch{
+        top: 25.3vh;
+    }
+
+    .switch{
+        height: 4vh;
+    }
+
+    .close-menu,
+    .minimize,
+    .fake-container{
+        top: 13.1vh;
+    }
  }
 
- .switch{
-     height: 4vh;
+ @media screen and (max-height:450px){
+    .switch{
+        height: 6vh;
+    }
  }
-
- .close-menu,
- .minimize,
- .fake-container{
-     top: 13.1vh;
- }
-}
-
-@media screen and (max-height:450px){
- .switch{
-     height: 6vh;
- }
-}
 
  @media screen and (max-height:350px){
     .fixed,
@@ -888,10 +837,7 @@ i{
     
     .left,
     .right,
-    .middle{
-    right: 2.2vw;
-    }
-
+    .middle,
     span.left,
     span.right,
     span.middle{
@@ -937,15 +883,11 @@ i{
 @media screen and (max-width: 768px) and (max-height:1000px){
     .left,
     .right,
-    .middle{
-    right: 1.7vw;
-    }
-
-    
+    .middle,
     span.left,
     span.right,
     span.middle{
-    right: 1.75vw;
+    right: 1.7vw;
     }
 }
 
